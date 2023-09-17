@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Novo Produto</title>
+</head>
+<body>
+    <h1>Criar Novo Produto</h1>
+    <form id="createProductForm">
+        <label for="name">Nome do Produto:</label>
+        <input type="text" id="name" required><br>
+
+        <label for="description">Descrição do Produto:</label>
+        <input type="text" id="description" required><br>
+
+        <label for="price">Preço do Produto:</label>
+        <input type="text" id="price" required><br>
+
+        <label for="marca">Marca:</label>
+        <input type="text" id="marca" required><br>
+
+        <label for="stock">Estoque:</label>
+        <input type="number" id="stock" required><br>
+
+        <button type="submit">Criar Produto</button>
+    </form>
+
+    <script>
+        document.getElementById('createProductForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const apiUrl = 'https://parseapi.back4app.com/classes/Product';
+            const headers = {
+                'X-Parse-Application-Id': 'juHvXqfJSaSIt8E832WOk28wqMG9u9fNyX2gbnGl',
+                'X-Parse-REST-API-Key': 'yu2c2hdmOOB3MleckoeGhskqy1lxoZz5lWjWK1fM',
+                'Content-Type': 'application/json'
+            };
+
+            const name = document.getElementById('name').value;
+            const description = document.getElementById('description').value;
+            const price = document.getElementById('price').value; // Agora tratado como uma string
+            const marca = document.getElementById('marca').value;
+            const stock = parseInt(document.getElementById('stock').value);
+
+            const newProductData = {
+                name: name,
+                description: description,
+                price: price, // Deve ser uma string
+                marca: marca,
+                stock: stock
+            };
+
+            fetch(apiUrl, {
+                method: 'POST',
+                headers: headers,
+                body: JSON.stringify(newProductData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Produto criado com sucesso. Objeto retornado:', data);
+                alert('Produto criado com sucesso!');
+                // Limpar o formulário após o sucesso, se necessário
+                document.getElementById('createProductForm').reset();
+            })
+            .catch(error => {
+                console.error('Erro ao criar o produto:', error);
+                alert('Erro ao criar o produto. Verifique o console para mais informações.');
+            });
+        });
+    </script>
+</body>
+</html>
