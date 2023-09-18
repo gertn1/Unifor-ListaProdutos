@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listar Produtos</title>
+    <title>Produtos Listados </title>
+   
+
 </head>
 <body>
     <h1>Lista de Produtos</h1>
@@ -27,9 +29,9 @@
 
                 data.results.forEach(product => {
                     const li = document.createElement('li');
-                    li.textContent = `Nome: ${product.name}, Descrição: ${product.description}, Preço: ${
+                    li.textContent = `Nome: ${product.name} - , Descrição: ${product.description} - , Preço: ${
                         parseFloat(product.price).toFixed(2) // Converter preço para número
-                    }, Marca: ${product.marca}, Estoque: ${
+                    }, - Marca: ${product.marca} - , Estoque: ${
                         parseInt(product.stock) // Converter estoque para número
                     }`;
 
@@ -43,5 +45,8 @@
 
         window.onload = listProducts;
     </script>
+
+        <a class="btn btn-secondary" aria-current="page" href="./index.html">Voltar</a>
+
 </body>
 </html>
