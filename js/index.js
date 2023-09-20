@@ -1,17 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Produtos Listados </title>
-   
 
-</head>
-<body>
-    <h1>Lista de Produtos</h1>
-    <ul id="productList"></ul>
-
-    <script>
         const apiUrl = 'https://parseapi.back4app.com/classes/Product';
         const headers = {
             'X-Parse-Application-Id': 'juHvXqfJSaSIt8E832WOk28wqMG9u9fNyX2gbnGl',
@@ -29,9 +16,9 @@
 
                 data.results.forEach(product => {
                     const li = document.createElement('li');
-                    li.textContent = `Nome: ${product.name} - , Descrição: ${product.description} - , Preço: ${
+                    li.textContent = `Nome: ${product.name}, Descrição: ${product.description}, Preço: ${
                         parseFloat(product.price).toFixed(2) // Converter preço para número
-                    }, - Marca: ${product.marca} - , Estoque: ${
+                    }, Marca: ${product.marca}, Estoque: ${
                         parseInt(product.stock) // Converter estoque para número
                     }`;
 
@@ -44,9 +31,6 @@
         }
 
         window.onload = listProducts;
-    </script>
+    
 
-        <a class="btn btn-secondary" aria-current="page" href="./index.html">Voltar</a>
 
-</body>
-</html>

@@ -6,56 +6,27 @@
         <title>Criar Usuario</title>
         <script type="text/javascript" src="https://npmcdn.com/parse/dist/parse.min.js"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <html>
-</html>
+        <link rel="stylesheet" href="style.css">
+        <html>
+
           
         <body>
           <h1>Criar Usuario</h1>
-          <input id="username" type="text" placeholder="Username" />
+          <input id="username" type="text" placeholder="Nome" />
           <input id="email" type="email" placeholder="Email" />
-          <input id="password" type="password" placeholder="Password" />
-          <button id="createButton">Create User</button>
+          <input id="password" type="password" placeholder="Senha" />
+          <button id="createButton">Criar Usuario</button>
         </body>
-        <script>
-        // Initialize Parse
-          Parse.initialize("juHvXqfJSaSIt8E832WOk28wqMG9u9fNyX2gbnGl", "m7c2Wl9Yw0MA2mRBMaWYzA0fYP3vS5I9cyGqR1Wg"); //PASTE HERE YOUR Back4App APPLICATION ID AND YOUR JavaScript KEY
-          Parse.serverURL = "https://parseapi.back4app.com/";
-      
-          // Create a new User
-          async function createParseUser() {
-            // Creates a new Parse "User" object, which is created by default in your Parse app
-            let user = new Parse.User();
-            // Set the input values to the new "User" object
-            user.set("username", document.getElementById("username").value);
-            user.set("email", document.getElementById("email").value);
-            user.set("password", document.getElementById("password").value);
-            try {
-              // Call the save method, which returns the saved object if successful
-              user = await user.save();
-              if (user !== null) {
-                // Notify the success by getting the attributes from the "User" object, by using the get method (the id attribute needs to be accessed directly, though)
-                alert(
-                  `New object created with success! ObjectId: ${
-                    user.id
-                  }, ${user.get("username")}`
-                );
-              }
-            } catch (error) {
-              alert(`Error: ${error.message}`);
-            }
-          }
-      
-          // Add on click listener to call the create parse user function
-          document.getElementById("createButton").addEventListener("click", async function () {
-            createParseUser();
-          });
-
-
-        </script>
-        <a class="btn btn-secondary" aria-current="page" href="./index.html">Voltar</a>
-                
+        
+        <a class="btn btn-secondary" aria-current="page" href="./index.html">Voltar</a>         
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-      </html>
+    <script src="./js/criarUsuario.js"></script>
+
+    <footer>
+      <p>Unifor - Trabalho Dev Software em Nuvem</p>
+  </footer>
+  </body>
+    </html>
 
 
 

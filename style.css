@@ -1,0 +1,28 @@
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #1d70a2;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+#productList{
+ 
+  margin:2% 0% 0% 0%;
+  text-align: center;
+}
+h1 {
+  text-align: center;
+
+
+}
+#createProductForm{
+    text-align: center;
+
+}
+/*#editProductForm{
+    text-align: right;
+    display: flex;
+}
